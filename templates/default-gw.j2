@@ -1,0 +1,13 @@
+{# Default gateway
+To be discussed policy as this is dangerous and potentially unnecessary.
+This should be part of a pre-run configuration!
+Used vars:
+mgmt_gateway :   mgmt interface next hop address
+mgmt_interface : mgmt interface name (default: mgmt)
+#}
+config router static
+ edit 1
+  set gateway "{{ mgmt_gateway }}"
+  set device "{{ mgmt_interface }}"
+ next
+end
