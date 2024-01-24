@@ -1,0 +1,9 @@
+{# Banner template #}
+config system global
+ set pre-login-banner enable
+ set post-login-banner disable
+end
+config system replacemsg admin "post_admin-disclaimer-text"
+ set buffer "ACCESS IS RESTRICTED TO AUTHORIZED PERSONNEL
+XY Company owns and maintains this computer system."
+end
