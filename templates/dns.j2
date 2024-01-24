@@ -1,0 +1,12 @@
+{# DNS
+updated: 2023.01.25.
+Used vars:
+mgmt_interface  : Management interface name (default: mgmt)
+#}
+config system dns
+set primary 8.8.8.8
+set secondary 8.8.4.4
+set domain "myco.com"
+set interface-select-method specify
+set interface "{{ mgmt_interface }}"
+end
