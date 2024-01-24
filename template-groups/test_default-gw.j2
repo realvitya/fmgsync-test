@@ -1,0 +1,10 @@
+{# Global templates
+These templates will appear in FMG in this order.
+Variables will be gathered from them and there must be no conflict between variable default values otherwise, the sync operation will stop!
+#}
+
+{% include templates/test_banner.j2 %}
+
+{% include templates/test_dns.j2 %}
+
+{% include templates/test_default-gw.j2 %}
