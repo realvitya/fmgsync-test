@@ -40,12 +40,6 @@ jobs:
       - name: Install Jinja2
         run: |
           pip install j2lint
-      - name: Lint pre-run templates
+      - name: Lint Jinja templates
         run: |
-          python -m j2lint pre-run
-      - name: Lint CLI templates
-        run: |
-          python -m j2lint templates
-      - name: Lint CLI template groups
-        run: |
-          python -m j2lint template-groups
+          python -m j2lint pre-run templates template-groups
