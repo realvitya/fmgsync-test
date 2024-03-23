@@ -1,0 +1,51 @@
+---
+name: Jinja2 linting
+
+#
+# Documentation:
+# https://help.github.com/en/articles/workflow-syntax-for-github-actions
+#
+
+#############################
+# Start the job on all push #
+#############################
+on:
+  push:
+    paths:
+      - templates
+      - pre-run
+      - templates-groups
+  workflow_dispatch:
+
+###############
+# Set the Job #
+###############
+jobs:
+  linting:
+    # Name the Job
+    name: Lint Code Base
+    # Set the agent to run on
+    runs-on: ["self-hosted", "org-runner", "Linux"]
+
+    steps:
+      ######################
+      # Checkout templates #
+      ######################
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      ################################
+      # Run Linter against templates #
+      ################################
+      - name: Install Jinja2
+        run: |
+          pip install j2lint
+      - name: Lint pre-run templates
+        run: |
+          python -m j2lint pre-run
+      - name: Lint CLI templates
+        run: |
+          python -m j2lint templates
+      - name: Lint CLI template groups
+        run: |
+          python -m j2lint template-groups
